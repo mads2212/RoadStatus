@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadStatus", "RoadStatus\RoadStatus.csproj", "{AE443156-6BF4-4F8D-971A-349DB3C1A228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadStatus.Tests", "RoadStatus.Tests\RoadStatus.Tests.csproj", "{BA3C8B65-45D7-4753-8F92-AEDECE790164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadStatus.ApiService", "RoadStatus.ApiService\RoadStatus.ApiService.csproj", "{643EDBD5-9BF3-4F86-9A3C-BD5FD0F4E602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE443156-6BF4-4F8D-971A-349DB3C1A228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE443156-6BF4-4F8D-971A-349DB3C1A228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE443156-6BF4-4F8D-971A-349DB3C1A228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE443156-6BF4-4F8D-971A-349DB3C1A228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA3C8B65-45D7-4753-8F92-AEDECE790164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA3C8B65-45D7-4753-8F92-AEDECE790164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA3C8B65-45D7-4753-8F92-AEDECE790164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA3C8B65-45D7-4753-8F92-AEDECE790164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{643EDBD5-9BF3-4F86-9A3C-BD5FD0F4E602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643EDBD5-9BF3-4F86-9A3C-BD5FD0F4E602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643EDBD5-9BF3-4F86-9A3C-BD5FD0F4E602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643EDBD5-9BF3-4F86-9A3C-BD5FD0F4E602}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
