@@ -4,12 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using RoadStatus.ApiService;
 
 namespace RoadStatus.Tests;
-
-public class Tests
+public class RoadApiServiceTests
 {
     private readonly IRoadApiService _roadApiService;
 
-    public Tests()
+    public RoadApiServiceTests()
     {
         var builder = new ConfigurationBuilder()
             .AddJsonFile($"appsettings.json", true, true);
@@ -27,6 +26,7 @@ public class Tests
 
     [Test]
     [TestCase("A2")]
+    [TestCase("A3")]
     public async Task Valid_Code_Must_Return_IsSuccessResponse_In_Response(string code)
     {
         var result = await _roadApiService.GetRoadStatusByCode(code);
@@ -34,6 +34,7 @@ public class Tests
     }
 
     [TestCase("A2")]
+    [TestCase("A3")]
     public async Task Valid_Code_Must_Return_Road_Data_In_Response(string code)
     {
         var result = await _roadApiService.GetRoadStatusByCode(code);
@@ -55,6 +56,7 @@ public class Tests
     }
 
     [TestCase("A2")]
+    [TestCase("A3")]
     public async Task Valid_Code_Must_Return_Success_Status_Message_In_Response(string code)
     {
         var result = await _roadApiService.GetRoadStatusByCode(code);
@@ -62,6 +64,7 @@ public class Tests
     }
     
     [TestCase("A2")]
+    [TestCase("A3")]
     public async Task StatusMessage_Should_Be_Correct_For_Valid_Code(string code)
     {
         var result = await _roadApiService.GetRoadStatusByCode(code);

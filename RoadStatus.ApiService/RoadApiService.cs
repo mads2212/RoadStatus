@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using RestSharp;
@@ -20,7 +21,7 @@ public class RoadApiService : IRoadApiService
     {
         var options = new RestClientOptions($"https://api.tfl.gov.uk/");
         var client = new RestClient(options);
-        var request = new RestRequest($"Road/{code}?app_id= {_apiKey}&amp;app_key={_appId}");
+        var request = new RestRequest($"Road/{code}/Status?app_id={_appId}&app_key={_apiKey}");
         var response = await client.ExecuteGetAsync(request);
         Road? roadData;
         
@@ -37,11 +38,12 @@ public class RoadApiService : IRoadApiService
         {
             IsSuccessReponse = response.IsSuccessStatusCode,
             Data = roadData,
-            StatusMessage = GetStatusMessages(response.IsSuccessStatusCode, roadData, code)
+            StatusMessage = GetStatusMessages(response.IsSuccessStatusCode, roadData, code, response.StatusCode, response.Content)
         };
     }
 
-    private static string GetStatusMessages(bool responseIsSuccessStatusCode, Road? roadData, string code)
+    private static string GetStatusMessages(bool responseIsSuccessStatusCode, Road? roadData, string code,
+        HttpStatusCode responseStatusCode, string? responseContent)
     {
         var statusMessages = new StringBuilder();
         
@@ -53,8 +55,19 @@ public class RoadApiService : IRoadApiService
         }
         else
         {
-            statusMessages.Append($"Road {code} is not a valid road");
+            SetRequestFailedResponse(code, responseStatusCode, responseContent, statusMessages);
         }
         return statusMessages.ToString();
+    }
+
+    private static void SetRequestFailedResponse(string code, HttpStatusCode responseStatusCode, string? responseContent, StringBuilder statusMessages)
+    {
+        if (responseStatusCode == HttpStatusCode.NotFound)
+            statusMessages.Append($"Road {code} is not a valid road");
+        else
+        {
+            statusMessages.AppendLine($"An error occurred while processing your request.");
+            statusMessages.AppendLine(responseContent);
+        }
     }
 }

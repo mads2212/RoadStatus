@@ -4,11 +4,11 @@ using RoadStatus.ApiService;
 
 var roadApiService = SetupRoadApiService();
 
-if(args.Length == 0)
-{
-    Console.WriteLine("Please provide a road code");
-    Environment.Exit(1);
-}
+ if(args.Length == 0)
+ {
+     Console.WriteLine("Please provide a road code");
+     Environment.Exit(1);
+ }
 
 var code = args[0];
 
