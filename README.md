@@ -6,7 +6,7 @@ Instructions to run:
 - The tests were created with NUnit. Use your favourite way of running them. I run them through my IDE (Jetbrains Rider).
 
 
-OBS: The URLs provided by you in the examples on the coding challenge instructions document worked with any value for the key and the app id.
+OBS: The endpoinds provided by you in the examples on the coding challenge instructions document worked with any value for the key and the app id.
 
 https://api.tfl.gov.uk/Road/A2?app_id=your_app_id&amp;app_key=your_developer_key <- This actually works and give valid results
 
